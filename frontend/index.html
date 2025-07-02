@@ -1,32 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Resume</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #18bc9c;
+      --light: #ecf0f1;
+      --dark: #34495e;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light);
+      color: var(--primary);
+      scroll-behavior: smooth;
+    }
+
+    header, section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header h2 {
+      font-weight: normal;
+      margin: 0.5rem 0;
+    }
+
+    header .contact {
+      margin-top: 1rem;
+    }
+
+    header .contact a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--dark);
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    h3 {
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 5px;
+    }
+
+    .collapsible {
+      cursor: pointer;
+      background: var(--secondary);
+      color: white;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      text-align: left;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .collapsible:hover {
+      background: #1abc9c;
+    }
+
+    .content {
+      display: none;
+      overflow: hidden;
+      background-color: white;
+      padding: 10px 20px;
+      border: 1px solid var(--secondary);
+      border-radius: 0 0 10px 10px;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    .project-link {
+      display: block;
+      margin-top: 5px;
+      color: var(--primary);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin-top: 1rem;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--dark);
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      header h2 { font-size: 1.2rem; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Your Name</h1>
-    <p>Cloud Engineer | AWS Certified</p>
-  </header>
-  <section>
-    <h2>About Me</h2>
-    <p>I am a cloud enthusiast with experience in building serverless applications on AWS.</p>
-  </section>
-  <section>
-    <h2>Skills</h2>
+
+<header>
+  <h1>Jane Doe</h1>
+  <h2>Cloud & DevOps Engineer</h2>
+  <div class="contact">
+    <a href="mailto:jane@example.com">jane@example.com</a> |
+    <a href="tel:+1234567890">+1 234 567 890</a> |
+    <a href="https://linkedin.com/in/janedoe" target="_blank">LinkedIn</a> |
+    <a href="https://github.com/janedoe" target="_blank">GitHub</a>
+  </div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h3>About Me</h3>
+  <p>Experienced Cloud & DevOps Engineer with a background in managing scalable infrastructure, CI/CD pipelines, and cloud-native applications. Passionate about automation, observability, and system reliability. Looking to contribute to cutting-edge cloud projects and collaborate with agile teams.</p>
+</section>
+
+<section id="skills">
+  <h3>Skills</h3>
+  <div>
+    <span class="badge">AWS</span>
+    <span class="badge">Docker</span>
+    <span class="badge">Kubernetes</span>
+    <span class="badge">Terraform</span>
+    <span class="badge">Jenkins</span>
+    <span class="badge">Git</span>
+    <span class="badge">CI/CD</span>
+    <span class="badge">Linux</span>
+    <span class="badge">Ansible</span>
+    <span class="badge">Communication</span>
+    <span class="badge">Problem Solving</span>
+  </div>
+</section>
+
+<section id="experience">
+  <h3>Experience</h3>
+
+  <button class="collapsible">DevOps Engineer – ABC Tech (2022–Present)</button>
+  <div class="content">
     <ul>
-      <li>AWS (Lambda, S3, DynamoDB, API Gateway)</li>
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>CI/CD</li>
+      <li>Designed and maintained AWS infrastructure using Terraform and CloudFormation.</li>
+      <li>Built and managed CI/CD pipelines with Jenkins and GitHub Actions.</li>
+      <li>Implemented containerization with Docker and orchestration with Kubernetes.</li>
     </ul>
-  </section>
-  <footer>
-    <p>Visitor Count: <span id="visitor-count">Loading...</span></p>
-  </footer>
-  <script src="script.js"></script>
+  </div>
+
+  <button class="collapsible">Cloud Engineer – XYZ Solutions (2019–2022)</button>
+  <div class="content">
+    <ul>
+      <li>Deployed applications across multi-cloud environments (AWS, Azure).</li>
+      <li>Automated infrastructure monitoring and alerting with Prometheus and Grafana.</li>
+      <li>Improved deployment speed by 40% through pipeline optimization.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <h3>Education</h3>
+  <ul>
+    <li>B.Sc. in Computer Science – University of Technology, 2018</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h3>Projects</h3>
+
+  <button class="collapsible">Portfolio Website</button>
+  <div class="content">
+    <p>A responsive personal portfolio built with HTML, CSS, and JavaScript. Showcases skills, certifications, and project demos.</p>
+    <a class="project-link" href="https://yourportfolio.com" target="_blank">Live Demo</a>
+    <a class="project-link" href="https://github.com/janedoe/portfolio" target="_blank">Source Code</a>
+  </div>
+
+  <button class="collapsible">CI/CD Pipeline with Jenkins</button>
+  <div class="content">
+    <p>Created a complete CI/CD pipeline for Node.js applications using Jenkins, Docker, and AWS EC2 with blue-green deployments.</p>
+    <a class="project-link" href="https://github.com/janedoe/jenkins-pipeline" target="_blank">Source Code</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h3>Contact Me</h3>
+  <form onsubmit="return validateForm();">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+  // Collapsible sections
+  document.querySelectorAll('.collapsible').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const content = btn.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // Simple contact form validation
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+    alert('Thank you! Your message has been sent.');
+    return false; // Prevent actual form submission for demo
+  }
+</script>
+
 </body>
 </html>
