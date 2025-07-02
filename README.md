@@ -1,4 +1,4 @@
-# Cloud Resume Challenge - [Your Name]
+# Cloud Resume Challenge - [SanthoshKumar G]
 
 Welcome to my Cloud Resume Challenge repository! This project is a culmination of my journey into cloud computing, where I built a serverless resume website hosted on AWS. Below is an overview of the technologies and services I used to complete this challenge.
 
